@@ -1,4 +1,4 @@
-class Card /*extends Sprite*/ {
+class Card {
 
     constructor(x, y, defaultImg, turnImg) {
         if ((!(defaultImg instanceof p5.Image))) {
