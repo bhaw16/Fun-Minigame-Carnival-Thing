@@ -20,4 +20,11 @@ class Card extends Sprite {
         (this.img == this.defaultImg) ? this.img = turnImg : this.img = this.defaultImg;
     }
 
+    matches(otherCard) {
+        if ((!(otherCard instanceof Card))) {
+            throw new TypeError("otherCard must be of type Card.");
+        }
+        return this.img == otherCard.img;
+    }
+
 }
