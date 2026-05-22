@@ -11,6 +11,8 @@ class Card {
 
         this.defaultImg = defaultImg;
         this.turnImg = turnImg;
+        this.defaultImg.resize(75, 75);
+        this.turnImg.resize(75, 75);
         this.sprite = new Sprite(this.defaultImg, x, y, 75, 75, KIN);
     }
 
