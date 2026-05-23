@@ -23,6 +23,8 @@ function setup() {
     ];
     cards = [[new Card(75, 75, cardBack, randomizeCardImage(random(random(imgs)))), new Card(175, 75, cardBack, randomizeCardImage(random(random(imgs)))),
         new Card(275, 75, cardBack, randomizeCardImage(random(random(imgs)))), new Card(375, 75, cardBack, randomizeCardImage(random(random(imgs))))
+    ], [new Card(75, 175, cardBack, randomizeCardImage(random(random(imgs)))), new Card(175, 175, cardBack, randomizeCardImage(random(random(imgs)))),
+        new Card(275, 175, cardBack, randomizeCardImage(random(random(imgs)))), new Card(375, 175, cardBack, randomizeCardImage(random(random(imgs))))
     ]];
     /*card1 = new Card(width / 2 - width / 4, height / 2, cardBack, macNCheese);
     card2 = new Card(width / 2, height / 2, cardBack, loadedWaffFries);
