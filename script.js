@@ -2,6 +2,7 @@ var cardBack;
 var macNCheese, loadedWaffFries, cheeseDogs, _4CheeseMac, beef_taco, sugarDonuts, nathansMeal, chalupa;
 var card1;
 var cards = [], imgs;
+var arr1 = [], arr2 = [];
 
 function preload() {
     cardBack = loadImage("serving-plate-w-lid.jpg");
@@ -18,13 +19,13 @@ function preload() {
 function setup() {
     createCanvas(400, 400);
     imgs = [
-        [macNCheese, _4CheeseMac, loadedWaffFries, nathansMeal],
-        [cheeseDogs, beef_taco, sugarDonuts, chalupa]
+        macNCheese, _4CheeseMac, loadedWaffFries, nathansMeal,
+        cheeseDogs, beef_taco, sugarDonuts, chalupa
     ];
-    cards = [[new Card(75, 75, cardBack, randomizeCardImage(random(random(imgs)))), new Card(175, 75, cardBack, randomizeCardImage(random(random(imgs)))),
-        new Card(275, 75, cardBack, randomizeCardImage(random(random(imgs)))), new Card(375, 75, cardBack, randomizeCardImage(random(random(imgs))))
-    ], [new Card(75, 175, cardBack, randomizeCardImage(random(random(imgs)))), new Card(175, 175, cardBack, randomizeCardImage(random(random(imgs)))),
-        new Card(275, 175, cardBack, randomizeCardImage(random(random(imgs)))), new Card(375, 175, cardBack, randomizeCardImage(random(random(imgs))))
+    cards = [[new Card(75, 75, cardBack, randomizeCardImage()), new Card(175, 75, cardBack, randomizeCardImage()),
+        new Card(275, 75, cardBack, randomizeCardImage()), new Card(375, 75, cardBack, randomizeCardImage())
+    ], [new Card(75, 175, cardBack, randomizeCardImage()), new Card(175, 175, cardBack, randomizeCardImage()),
+        new Card(275, 175, cardBack, randomizeCardImage()), new Card(375, 175, cardBack, randomizeCardImage())
     ]];
     /*card1 = new Card(width / 2 - width / 4, height / 2, cardBack, macNCheese);
     card2 = new Card(width / 2, height / 2, cardBack, loadedWaffFries);
@@ -47,18 +48,24 @@ function draw() {
         card3.flip();*/
 }
 
-function randomizeCardImage(img) {
-    var timesRandomized = 0;
-    if (timesRandomized < 2) {
-        if ((!(img instanceof p5.Image)))
-            throw new TypeError("img must be of type p5.Image.");
-        var randomImg = random(random(imgs));
-        if (randomImg == img) {
-            timesRandomized++;
-        }
-        return randomImg;
+function randomizeCardImage() {
+    var randomgImg = random(imgs);
+    if (!arr1.includes(randomgImg)) {
+        arr1.push(randomgImg);
+        return randomgImg;
+    }
+    else if (!arr2.includes(randomgImg)) {
+        arr2.push(randomgImg);
+        return randomgImg;
     }
     else {
-        randomizeCardImage(img);
+        /*imageIndex = imgs.indexOf(randomgImg);
+        if (imageIndex != imgs.length - 1) {
+            var temp = imgs[imgs.length - 1];
+            imgs[imgs.length - 1] = imgs[imageIndex];
+            imgs[imageIndex] = temp;
+        }
+        imgs.pop();*/
+        randomizeCardImage();
     }
 }
