@@ -1,14 +1,14 @@
 class Card {
 
     constructor(x, y, defaultImg, turnImg) {
-        if ((!(defaultImg instanceof p5.Image))) {
+        /*if ((!(defaultImg instanceof p5.Image))) {
             throw new TypeError("defaultImg must be of type p5.Image.");
         }
 
         if ((!(turnImg instanceof p5.Image))) {
             throw new TypeError("turnImg must be of type p5.Image.");
         }
-
+        */
         this.defaultImg = defaultImg;
         this.turnImg = turnImg;
         this.defaultImg.resize(75, 75);

@@ -50,11 +50,11 @@ function draw() {
 
 function randomizeCardImage() {
     var randomgImg = random(imgs);
-    if (!arr1.includes(randomgImg)) {
+    if ((!(arr1.includes(randomgImg)))) {
         arr1.push(randomgImg);
         return randomgImg;
     }
-    else if (!arr2.includes(randomgImg)) {
+    else if ((!(arr2.includes(randomgImg)))) {
         arr2.push(randomgImg);
         return randomgImg;
     }
