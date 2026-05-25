@@ -26,12 +26,12 @@ function setup() {
     cards = [[new Card(75, 75, cardBack, randomizeCardImage()), new Card(175, 75, cardBack, randomizeCardImage()),
                 new Card(275, 75, cardBack, randomizeCardImage()), new Card(375, 75, cardBack, randomizeCardImage())],
         [new Card(75, 175, cardBack, randomizeCardImage()), new Card(175, 175, cardBack, randomizeCardImage()),
-            new Card(275, 175, cardBack, randomizeCardImage()), new Card(375, 175, cardBack, randomizeCardImage())],
-        [new Card(75, 275, cardBack, randomizeCardImage()), new Card(175, 275, cardBack, randomizeCardImage()),
+            new Card(275, 175, cardBack, randomizeCardImage()), new Card(375, 175, cardBack, randomizeCardImage())]/*,
+        [new Card(75, 275, cardBack, randomizeCardImage())/*, new Card(175, 275, cardBack, randomizeCardImage()),
             new Card(275, 275, cardBack, randomizeCardImage()), new Card(375, 275, cardBack, randomizeCardImage())],
         [new Card(75, 375, cardBack, randomizeCardImage()), new Card(175, 375, cardBack, randomizeCardImage()),
-            new Card(275, 375, cardBack, randomizeCardImage()), new Card(375, 375, cardBack, randomizeCardImage())
-        ]
+            new Card(275, 375, cardBack, randomizeCardImage()), new Card(375, 375, cardBack, randomizeCardImage())*/
+        //]
 ];
     /*card1 = new Card(width / 2 - width / 4, height / 2, cardBack, macNCheese);
     card2 = new Card(width / 2, height / 2, cardBack, loadedWaffFries);
@@ -40,12 +40,12 @@ function setup() {
 
 function draw() {
     background("pink");
-    for (var r = 0; r < cards.length; r++) {
+    /*for (var r = 0; r < cards.length; r++) {
         for (var c = 0; c < cards[0].length; c++) {
           if (cards[r][c].sprite.mouse.pressed())
             cards[r][c].flip(); 
         }
-    }
+    }*/
     /*if (card1.sprite.mouse.pressed())
         card1.flip();
     if (card2.sprite.mouse.pressed())
@@ -56,12 +56,16 @@ function draw() {
 
 function randomizeCardImage() {
     var randomImg = random(imgs);
+    console.log(`${imgs[imgs.indexOf(randomImg)].src}: ${imgs[imgs.indexOf(randomImg)].timesRandomized}`);
     imgs[imgs.indexOf(randomImg)].timesRandomized++;
+    console.log(`${imgs[imgs.indexOf(randomImg)].src}: ${imgs[imgs.indexOf(randomImg)].timesRandomized}`);
     console.log(randomImg.src);
     if (imgs[imgs.indexOf(randomImg)].timesRandomized > 2) {
+        console.log("Randomizing again...");
         randomizeCardImage();
     }
     else {
+        console.log("Random card image has been generated.");
         return randomImg;
     }
 }
