@@ -5,6 +5,7 @@ var cards = [], imgs;
 var arr1 = [], arr2 = [];
 
 function preload() {
+    p5.Image.prototype.timesRandomized = 0;
     cardBack = loadImage("serving-plate-w-lid.jpg");
     macNCheese = loadImage("mac-n-cheese.png");
     loadedWaffFries = loadImage("brew-pub-loaded-waffle-fries.png");
@@ -23,10 +24,15 @@ function setup() {
         cheeseDogs, beef_taco, sugarDonuts, chalupa
     ];
     cards = [[new Card(75, 75, cardBack, randomizeCardImage()), new Card(175, 75, cardBack, randomizeCardImage()),
-        new Card(275, 75, cardBack, randomizeCardImage()), new Card(375, 75, cardBack, randomizeCardImage())
-    ], [new Card(75, 175, cardBack, randomizeCardImage()), new Card(175, 175, cardBack, randomizeCardImage()),
-        new Card(275, 175, cardBack, randomizeCardImage()), new Card(375, 175, cardBack, randomizeCardImage())
-    ]];
+                new Card(275, 75, cardBack, randomizeCardImage()), new Card(375, 75, cardBack, randomizeCardImage())],
+        [new Card(75, 175, cardBack, randomizeCardImage()), new Card(175, 175, cardBack, randomizeCardImage()),
+            new Card(275, 175, cardBack, randomizeCardImage()), new Card(375, 175, cardBack, randomizeCardImage())],
+        [new Card(75, 275, cardBack, randomizeCardImage()), new Card(175, 275, cardBack, randomizeCardImage()),
+            new Card(275, 275, cardBack, randomizeCardImage()), new Card(375, 275, cardBack, randomizeCardImage())],
+        [new Card(75, 375, cardBack, randomizeCardImage()), new Card(175, 375, cardBack, randomizeCardImage()),
+            new Card(275, 375, cardBack, randomizeCardImage()), new Card(375, 375, cardBack, randomizeCardImage())
+        ]
+];
     /*card1 = new Card(width / 2 - width / 4, height / 2, cardBack, macNCheese);
     card2 = new Card(width / 2, height / 2, cardBack, loadedWaffFries);
     card3 = new Card(width / 2 + width / 4, height / 2, cardBack, cheeseDogs);*/
@@ -49,23 +55,13 @@ function draw() {
 }
 
 function randomizeCardImage() {
-    var randomgImg = random(imgs);
-    if ((!(arr1.includes(randomgImg)))) {
-        arr1.push(randomgImg);
-        return randomgImg;
-    }
-    else if ((!(arr2.includes(randomgImg)))) {
-        arr2.push(randomgImg);
-        return randomgImg;
+    var randomImg = random(imgs);
+    imgs[imgs.indexOf(randomImg)].timesRandomized++;
+    console.log(randomImg.src);
+    if (imgs[imgs.indexOf(randomImg)].timesRandomized > 2) {
+        randomizeCardImage();
     }
     else {
-        /*imageIndex = imgs.indexOf(randomgImg);
-        if (imageIndex != imgs.length - 1) {
-            var temp = imgs[imgs.length - 1];
-            imgs[imgs.length - 1] = imgs[imageIndex];
-            imgs[imageIndex] = temp;
-        }
-        imgs.pop();*/
-        randomizeCardImage();
+        return randomImg;
     }
 }
