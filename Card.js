@@ -1,7 +1,6 @@
 class Card {
 
     constructor(x, y, defaultImg, turnImg) {
-        //console.log(turnImg);
         if ((!(defaultImg instanceof p5.Image))) {
             throw new TypeError("defaultImg must be of type p5.Image.");
         }
@@ -9,13 +8,11 @@ class Card {
         if ((!(turnImg instanceof p5.Image))) {
             throw new TypeError("turnImg must be of type p5.Image.");
         }
-        //some images when initialized w/ this constructor have a value of "undefined"
         this.defaultImg = defaultImg;
         this.turnImg = turnImg;
         this.defaultImg.resize(75, 75);
         this.turnImg.resize(75, 75);
         this.sprite = new Sprite(this.defaultImg, x, y, 75, 75, KIN);
-        this.flip();
     }
 
     flip() {
