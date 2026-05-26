@@ -36,20 +36,6 @@ function setup() {
             cards[r].push(new Card(75 + c * 100, 75 + r * 100, cardBack, imgs[imgNums[counter++]]));
         }
     }
-    //
-    /*cards = [[new Card(75, 75, cardBack, randomizeCardImage()), new Card(175, 75, cardBack, randomizeCardImage()),
-                new Card(275, 75, cardBack, randomizeCardImage()), new Card(375, 75, cardBack, randomizeCardImage())],
-        [new Card(75, 175, cardBack, randomizeCardImage()), new Card(175, 175, cardBack, randomizeCardImage()),
-            new Card(275, 175, cardBack, randomizeCardImage()), new Card(375, 175, cardBack, randomizeCardImage())],
-        [new Card(75, 275, cardBack, randomizeCardImage()), new Card(175, 275, cardBack, randomizeCardImage()),
-            new Card(275, 275, cardBack, randomizeCardImage()), new Card(375, 275, cardBack, randomizeCardImage())],
-        [new Card(75, 375, cardBack, randomizeCardImage()), new Card(175, 375, cardBack, randomizeCardImage()),
-            new Card(275, 375, cardBack, randomizeCardImage()), new Card(375, 375, cardBack, randomizeCardImage())
-        ]
-];*/
-    /*card1 = new Card(width / 2 - width / 4, height / 2, cardBack, macNCheese);
-    card2 = new Card(width / 2, height / 2, cardBack, loadedWaffFries);
-    card3 = new Card(width / 2 + width / 4, height / 2, cardBack, cheeseDogs);*/
 }
 
 function draw() {
@@ -60,12 +46,6 @@ function draw() {
             cards[r][c].flip(); 
         }
     }
-    /*if (card1.sprite.mouse.pressed())
-        card1.flip();
-    if (card2.sprite.mouse.pressed())
-        card2.flip();
-    if (card3.sprite.mouse.pressed())
-        card3.flip();*/
 }
 
 /*function randomizeCardImage() {
